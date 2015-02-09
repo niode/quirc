@@ -1,22 +1,12 @@
-import Data.Complex
+import Numeric.LinearAlgebra
 
-data Qubit = Single (Complex, Complex)
+data Ket a = Ket (Vector a)
+           | KTensor (Ket a) (Ket a)
 
-data Tensor = Qubit (X)
+data Bra a = Bra (Vector a)
+           | BTensor (Bra a) (Bra a)
 
+instance Show (Ket a) where
+  show (Ket v) = "|" ++ (show v) ++ ">"
 
-plus::Qubit
-plus = 
-
-h::Qubit->Qubit
-
-cnot::Qubit->Qubit->Qubit
-
-not::Qubit->Qubit
-
-
-z::Qubit->Qubit
-
-cz::Qubit->Qubit
-
-control::(Qubit->Qubit)->Qubit->Qubit->Qubit
+-- No idea what to do!
